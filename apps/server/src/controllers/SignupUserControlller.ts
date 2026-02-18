@@ -12,7 +12,7 @@ export default async function signupUserController(req: Request, res: Response) 
 
         const existingUser = await prisma.user.findUnique({
             where: {
-                email
+                email:email
             }
         });
 

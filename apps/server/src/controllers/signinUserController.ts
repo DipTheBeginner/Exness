@@ -11,8 +11,9 @@ export default async function signinUserController(req: Request, res: Response) 
         const { email, password } = req.body;
 
         const existingUser = await prisma.user.findUnique({
-            where: { email }
+            where: { email: email }
         });
+
 
         if (!existingUser) {
             return res.status(401).json({
@@ -46,9 +47,11 @@ export default async function signinUserController(req: Request, res: Response) 
 
 
     } catch (error) {
+
+        console.log("signin error", error)
         return res.status(500).json({
-            success:false,
-            error:"Login Failed"
+            success: false,
+            error: "Login Failed"
         })
 
     }

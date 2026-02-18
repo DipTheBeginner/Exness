@@ -13,6 +13,34 @@ function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+  async function handleSignin() {
+    try {
+      const response = await fetch("http://localhost:7001/api/auth/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      })
+
+      const data = await response.json()
+
+      if (!data.success) {
+        alert(data.error);
+        return;
+      }
+
+      localStorage.setItem("token", data.token);
+      alert("Account login")
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <div className="mt-7 flex flex-col">
@@ -38,7 +66,7 @@ function SignInForm() {
         </div>
 
         <div className="mt-14">
-          <button className="border border-gray-400 bg-[#FFE55C] rounded-md p-2 w-full">Sign in</button>
+          <button onClick={handleSignin} className="border border-gray-400 bg-[#FFE55C] rounded-md p-2 w-full">Sign in</button>
         </div>
 
         <div className="flex gap-2 mt-7 items-center justify-center">
@@ -237,9 +265,7 @@ export default function Login() {
         <p>
           This website is operated by Vanvest Limited.
         </p>
-        {/* <div className="flex justify-start">
 
-      </div> */}
         <p>
           The entity above is duly authorized to operate under the Exness brand and trademarks.
         </p>
