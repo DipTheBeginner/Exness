@@ -16,7 +16,7 @@ router.post("/auth/signin",signinUserController);
 
 
 
-router.get("/me", authMiddleware, (req, res) => {
+router.get("/auth/me", authMiddleware, (req, res) => {
   res.json({
     message: "Authorized",
     user: req.user

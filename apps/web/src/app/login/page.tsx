@@ -1,7 +1,7 @@
 "use client";
 
 
-import { NavBar } from "@repo/ui";
+import NavBar from "../../components/NavBar";
 import { inter } from "../fonts";
 import { poppins } from "../fonts";
 import { useState } from "react";
