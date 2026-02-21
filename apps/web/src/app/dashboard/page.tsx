@@ -1,5 +1,5 @@
 "use client"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import DashboardNavbar from "../../components/DashboardNavbar";
 import { ChartCandlestick, ChevronUp } from "lucide-react";
@@ -7,6 +7,8 @@ import { SidebarSection } from "../../components/SidebarSection";
 
 export default function Dashboard() {
     const router = useRouter();
+
+    const [openSection, setOpenSection] = useState<string | null>(null)
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -17,13 +19,11 @@ export default function Dashboard() {
 
     return (
 
-        <div className="bg-green-400 min-h-screen">
+        <div className="bg-green-400 min-h-screen flex flex-col">
             <DashboardNavbar />
 
             <div className="flex flex-1">
                 <aside className="w-64 border-r bg-gray-50">
-
-
 
                     <SidebarSection
                         title="Trading"
@@ -36,31 +36,79 @@ export default function Dashboard() {
                                 "Exness Terminal"
                             ]
                         }
+
+                        isOpen={openSection === "Trading"}
+                        onToggle={() => setOpenSection(openSection === "Trading" ? null : "Trading")}
                     >
-
-
-
                     </SidebarSection>
 
-                    {/* <div className="flex gap-2 justify-between px-2 py-3">
+                    <SidebarSection
+                        title="Payment and Wallet"
+                        icon={<ChartCandlestick size={20} />}
+                        items={
+                            [
+                                "My accounts",
+                                "Performance",
+                                "History of orders",
+                                "Exness Terminal"
+                            ]
+                        }
 
-                        <div className="flex flex-col">
-                            <div className="flex">
-                                <ChartCandlestick size={20} />
-                                <div>Trading</div>
-                            </div>
-                            <div className="flex flex-col gap-5 ml-2 mt-4">
-                                <span>My accounts</span>
-                                <span>Performacne</span>
-                                <span>History of orders</span>
-                                <span>Exness Terminal</span>
-                            </div>
-                        </div>
-                        <ChevronUp size={16} />
-                    </div> */}
+                        isOpen={openSection === "Payment and Wallet"}
+                        onToggle={() => setOpenSection(openSection === "Payment and Wallet" ? null : "Payment and Wallet")}
+                    >
+                    </SidebarSection>
 
+                    <SidebarSection
+                        title="Anaylytics"
+                        icon={<ChartCandlestick size={20} />}
+                        items={
+                            [
+                                "My accounts",
+                                "Performance",
+                                "History of orders",
+                                "Exness Terminal"
+                            ]
+                        }
 
+                        isOpen={openSection === "Anaylytics"}
+                        onToggle={() => setOpenSection(openSection === "Anaylytics" ? null : "Anaylytics")}
+                    >
+                    </SidebarSection>
 
+                    <SidebarSection
+                        title="Exness Benefits"
+                        icon={<ChartCandlestick size={20} />}
+                        items={
+                            [
+                                "My accounts",
+                                "Performance",
+                                "History of orders",
+                                "Exness Terminal"
+                            ]
+                        }
+
+                        isOpen={openSection === "Exness Benefits"}
+                        onToggle={() => setOpenSection(openSection === "Exness Benefits" ? null : "Exness Benefits")}
+                    >
+                    </SidebarSection>
+
+                    <SidebarSection
+                        title="Settings"
+                        icon={<ChartCandlestick size={20} />}
+                        items={
+                            [
+                                "My accounts",
+                                "Performance",
+                                "History of orders",
+                                "Exness Terminal"
+                            ]
+                        }
+
+                        isOpen={openSection === "Settings"}
+                        onToggle={() => setOpenSection(openSection === "Settings" ? null : "Settings")}
+                    >
+                    </SidebarSection>
 
 
 

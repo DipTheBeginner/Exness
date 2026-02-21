@@ -3,7 +3,7 @@ import { CircleQuestionMark, Wallet, Bell,Grid3X3, CircleUserRound } from "lucid
 
 
 
-export default async function DashboardNavbar() {
+export default function DashboardNavbar() {
 
     return (
         <nav>
