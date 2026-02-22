@@ -36,7 +36,7 @@ export function SidebarSection({ title, icon, items,onToggle, isOpen }: SidebarS
             </div>
 
 
-            <div className={`${inter.className} transition-all duration-300  ${isOpen ? "max-h-60 opacity-100 mt-4" : "max-h-0 opacity-0"}`}
+            <div className={`${inter.className} transition-all duration-300 overflow-hidden ${isOpen ? "max-h-40 opacity-100 mt-4 pointer-events-auto" : "max-h-0  pointer-events-none"}`}
             >
                 <div className="flex flex-col ml-6 gap-3 text-slate-900">
                     {items.map((item) => (
