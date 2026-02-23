@@ -2,7 +2,6 @@
 
 import { ChevronUp } from "lucide-react";
 import { inter } from "../app/fonts";
-import { useState } from "react";
 
 interface SidebarSectionProps {
     title: string,

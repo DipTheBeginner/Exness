@@ -1,5 +1,4 @@
-import { Plus } from "lucide-react"
-import { inter } from "../../fonts"
+import { Plus,ArrowDown01,ChevronUp } from "lucide-react"
 
 export default async function () {
 
@@ -21,14 +20,14 @@ export default async function () {
                         </div>
                     </div>
 
-                    <div className="flex">
+                    <div className="flex justify-between">
 
                         <div>
-                            <div className="flex gap-3 border px-4 py-2 rounded-md">
-                                <div>
+                            <div className="flex gap-3 border px-1 py-1 rounded-md items-center border-slate-300">
+                                <div className=" w-14 text-center border border-transparent  cursor-pointer hover:bg-[#EEF0F2] px-2 py-1 hover:border-gray-400 transition-all duration-200 rounded-sm">
                                     Real
                                 </div>
-                                <div>
+                                <div className=" w-14 text-center border border-transparent  cursor-pointer hover:bg-[#EEF0F2] px-2 py-1  hover:border-gray-400 transition-all duration-200 rounded-sm">
                                     Demo
                                 </div>
                             </div>
@@ -36,7 +35,15 @@ export default async function () {
 
                         </div>
 
-                        <div>
+                        <div className="flex">
+                            <ArrowDown01 size={20}/>
+                            <div>
+                                
+                            </div>
+                            <ChevronUp size={20}/>
+
+
+
 
                         </div>
 
