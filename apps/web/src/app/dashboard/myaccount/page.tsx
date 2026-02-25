@@ -1,4 +1,5 @@
 import { Plus,ArrowDown01,ChevronUp } from "lucide-react"
+import SortDropDown from "../../../components/SortDopDown"
 
 export default async function () {
 
@@ -36,14 +37,12 @@ export default async function () {
                         </div>
 
                         <div className="flex">
-                            <ArrowDown01 size={20}/>
+                            
                             <div>
-                                
+                                <SortDropDown/>
+
                             </div>
                             <ChevronUp size={20}/>
-
-
-
 
                         </div>
 
